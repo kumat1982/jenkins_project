@@ -1,10 +1,12 @@
-From python:3.14-slim
+From node:18
 
 WORKDIR /app
 
 COPY . .
 
+EXPOSE 3000
+
 RUN pip install -r requirements.txt 
 
-CMD [ "python3", "app.py" ]
+CMD ["node", "app.js"]
 
