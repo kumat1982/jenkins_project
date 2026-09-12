@@ -1,12 +1,14 @@
-From node:18
+FROM node:18
 
 WORKDIR /app
+
+# Install Python and pip
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
 
 COPY . .
 
 EXPOSE 3000
-
-RUN pip install -r requirements.txt 
-
 CMD ["node", "app.js"]
-
